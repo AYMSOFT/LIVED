@@ -1,0 +1,132 @@
+/*!
+ * Copyright (c) 2014 Tamble, Inc.
+ * Licensed under MIT (https://github.com/tamble/jquery-ui-daterangepicker/raw/master/LICENSE.txt)
+ */
+
+ .comiseo-daterangepicker-triggerbutton.ui-button {
+	text-align: left;
+    min-width: 18em;
+    border-radius: 0;
+	border: 1px solid #30aedc;
+    box-shadow: none;
+    font-size: .9em;
+    background: transparent;
+}
+
+.comiseo-daterangepicker .ui-helper-clearfix .comiseo-daterangepicker-buttonpanel button{box-shadow: none;border-radius: 0;margin: 0 5px !important;font-size: 0.8em;} 
+
+
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight{
+	background: #5cc4ef !important;
+}
+.ui-state-highlight a, .ui-widget-content .ui-state-highlight a, .ui-widget-header .ui-state-highlight a{
+	color: #ffffff !important;
+}
+
+.comiseo-daterangepicker {
+	position: absolute;
+	padding: 5px;
+}
+
+.comiseo-daterangepicker-mask {
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: #5d5d5d6b;
+	opacity: 1;
+	filter: alpha(opacity = 0);
+}
+
+.comiseo-daterangepicker-presets,
+.comiseo-daterangepicker-calendar {
+	display: table-cell;
+	vertical-align: top;
+	height: 230px;
+}
+
+.comiseo-daterangepicker-right .comiseo-daterangepicker-presets {
+	padding: 2px 7px 7px 2px;
+}
+
+.comiseo-daterangepicker-left .comiseo-daterangepicker-presets {
+	padding: 2px 2px 7px 7px;
+}
+
+.ui-menu {
+	white-space: nowrap;
+}
+
+.comiseo-daterangepicker .ui-widget-content,
+.comiseo-daterangepicker .ui-datepicker .ui-state-highlight {
+	border-width: 0;
+}
+
+.comiseo-daterangepicker > .comiseo-daterangepicker-main.ui-widget-content {
+	border-bottom-width: 1px;
+}
+
+.comiseo-daterangepicker .ui-datepicker .ui-datepicker-today .ui-state-highlight {
+	border-width: 1px;
+}
+
+.comiseo-daterangepicker-right .comiseo-daterangepicker-calendar {
+	border-left-width: 1px;
+	padding-left: 5px;
+}
+
+.comiseo-daterangepicker-left .comiseo-daterangepicker-calendar {
+	border-right-width: 1px;
+	padding-right: 5px;
+}
+
+.comiseo-daterangepicker-right .comiseo-daterangepicker-buttonpanel {
+	float: left;
+}
+
+.comiseo-daterangepicker-left .comiseo-daterangepicker-buttonpanel {
+	float: right;
+}
+
+.comiseo-daterangepicker-buttonpanel > button  {
+	margin-top: 6px;
+}
+
+.comiseo-daterangepicker-right .comiseo-daterangepicker-buttonpanel > button {
+	margin-right: 6px;
+}
+
+.comiseo-daterangepicker-left .comiseo-daterangepicker-buttonpanel > button {
+	margin-left: 6px;
+}
+
+/* themeable styles */
+.comiseo-daterangepicker-calendar .ui-state-highlight a.ui-state-default {
+	background: #b0c4de;
+	color: #fff;
+}
+
+@media screen and (max-width: 1150px){
+
+	.comiseo-daterangepicker{width: 95%;right: 0; margin: auto;}     
+	.comiseo-daterangepicker-calendar.ui-widget-content.hasDatepicker,
+	.ui-datepicker-inline.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all.ui-datepicker-multi.ui-datepicker-multi-3{
+		width: 100% !important;
+	}
+}
+
+
+@media screen and (max-width: 568px){
+	.comiseo-daterangepicker{left: 0 !important;top: 10px !important;height: calc(100vh - 20px);overflow: scroll;display: grid;}
+	.comiseo-daterangepicker > .comiseo-daterangepicker-main.ui-widget-content{display: flex;flex-flow: wrap;border: 0;}
+	.comiseo-daterangepicker-right .comiseo-daterangepicker-presets{height: max-content;width: 100%;}
+	.comiseo-daterangepicker-right .comiseo-daterangepicker-presets ul li a{font-size: 15px;}
+	.comiseo-daterangepicker-calendar.ui-widget-content.hasDatepicker{     border: 0;   height: max-content;}
+	.ui-datepicker-inline.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all.ui-datepicker-multi.ui-datepicker-multi-3{display: flex;flex-flow: wrap;}
+	.ui-datepicker-inline.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all.ui-datepicker-multi.ui-datepicker-multi-3 > div{width: 100%;}
+	.comiseo-daterangepicker-right .comiseo-daterangepicker-buttonpanel{display: flex;margin: 10px 0;}
+	.comiseo-daterangepicker .ui-helper-clearfix .comiseo-daterangepicker-buttonpanel button{font-size: 0.6em;}
+}

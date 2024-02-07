@@ -1,0 +1,626 @@
+@charset "UTF-8"; /*
+	CSS Stylesheet HEPECADO 
+	Jul 2019
+	Powered by AyMsoft	
+*/
+/*========== ResetCSS ==========*/
+*,html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,tr,select,input {
+    appearance: inherit;
+    -moz-appearance: inherit;
+    -webkit-appearance: inherit;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+/*========== FUENTE ==========*/
+@font-face {
+    font-family: 'Regular';
+    src: url('/aym_font/Lato-Regular.ttf');
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GT-Sectra';
+    src: url('/aym_font/GT-Sectra-Display-Regular.ttf');
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GT-Sectra-Italic';
+    src: url('/aym_font/GT-Sectra-Display-Regular-Italic.ttf');
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bely';
+    src: url('/aym_font/Bely-Regular.ttf');
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: url('/aym_font/Lora.ttf');
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lora-Italic';
+    src: url('/aym_font/Lora-Italic.ttf');
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+}
+
+/*========== ROOT ==========*/
+:root {
+    --aym_tone_1: #00959d;
+    --aym_tone_2: #FFFFFF;
+    --aym_tone_3: #a5608d;
+    --aym_tone_4: #334862;
+    --aym_title: #555555;
+    --aym_line_title : #9999994f;
+    --aym_letter: #999999;
+    --aym_letter_2: #656565;
+    --aym_error: #c50e0e;
+    --aym_black: #000000;
+    --aym_white: #ffffff;
+    --aym_tone_a: #edf1fa;
+}
+
+/*========== DEFAULT ==========*/
+* {
+    font-family: 'Regular';
+}
+
+body {
+    opacity: 1;
+    transition: 1s ease;
+    line-height: 1.6;
+    color: var(--aym_black);
+}
+
+body.overflow {
+    overflow: hidden;
+}
+
+
+
+strong, b {
+    font-family: 'Bold-R';
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+input::placeholder {
+    color: black;
+  }
+
+a {
+    text-decoration: none;
+    color: var(--aym_black);
+}
+
+hr {
+    background: var(--aym_tone_3);
+    height: 1px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+ul li {
+    list-style: none;
+    position: relative;
+}
+
+header > section, main > section, footer > section {
+    max-width: 1150px;
+    margin: auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.aym_hidden, .owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
+    display: none !important;
+}
+
+.aym_principal_color {
+    color: var(--aym_tone_1);
+}
+
+button {
+    background-color: var(--aym_tone_4);
+    color: var(--aym_tone_2);
+    cursor: pointer;
+    font-size: 0.8em;
+    margin: 5px;
+    padding: 10px;
+}
+
+.aym_font_gt_sectra {
+    font-family: 'GT-Sectra';
+    font-weight: 100; 
+}
+
+.aym_font_gt_sectra_italic {
+    font-family: 'GT-Sectra-Italic';
+    font-weight: 100; 
+}
+
+.aym_font_lora {
+    font-family: 'Lora';
+    font-weight: 100; 
+}
+
+.aym_font_lora_italic {
+    font-family: 'Lora-Italic';
+    font-weight: 100; 
+}
+
+/* ========== HEADER ========== */
+#aym_wrap_header {align-items: center; background-color: var(--aym_tone_a); border-bottom: 1px solid var(--aym_black); display: flex; font-size: 1.2rem; height: 12vh; position: fixed; width: 100%; z-index: 10;}
+#aym_wrap_header .aym_logo,
+#aym_wrap_header .aym_nav,
+#aym_wrap_header .aym_timetable,
+#aym_wrap_header .aym_language {align-items: center; color: var(--aym_black); display: flex; height: 100%; justify-content: center;}
+#aym_wrap_header .aym_timetable {position: relative;}
+#aym_wrap_header .aym_timetable::before { background-image: linear-gradient(to right, var(--aym_tone_a) 20%, #c4f2f5 50%, #87e6f2 100%); content: ""; height: 100%; left: 0; opacity: 0; position: absolute; top: 0; transition: opacity 0.5s ease; width: 100%;}
+#aym_wrap_header .aym_timetable:hover::before {opacity: 1;}
+#aym_wrap_header .aym_timetable p {z-index: 1;}
+#aym_wrap_header .aym_logo {border-right: 1px solid var(--aym_black); font-family: 'Bely'; font-size: 3.5rem; width: 17%;}
+#aym_wrap_header .aym_nav {border-right: 1px solid var(--aym_black); width: 62%;}
+#aym_wrap_header .aym_nav ul {align-items: center; display: flex; gap: 10%; justify-content: center;}
+#aym_wrap_header .aym_nav ul li {background-image: linear-gradient(to right, black 0%, black 100%); background-position: bottom left; background-repeat: no-repeat; background-size: 0% 5%; transition: background-size 0.7s ease;}
+#aym_wrap_header .aym_nav ul li:hover{background-size: 50% 5%;}
+#aym_wrap_header .aym_timetable{border-right: 1px solid var(--aym_black); width: 11%;}
+#aym_wrap_header .aym_language{width: 10%;}
+
+/* ========== BANNER ========== */
+
+#aym_wrap_banner {
+    background-image: url(/aym_image/aym_back/aym_back_banner.jpg); 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    height: 100vh; 
+    width: 100%;
+}
+
+#aym_wrap_banner .aym_wrap_carousel {
+
+    height: 100%;
+    width: 100%;
+    padding-top: 6%;
+    display: flex;
+    align-items: center;
+    
+}
+
+#aym_wrap_banner .aym_wrap_carousel .aym_carousel_banner {
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#aym_wrap_banner .aym_wrap_carousel .aym_carousel_banner .aym_carousel_item {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#aym_wrap_banner .aym_wrap_carousel .owl-carousel .owl-nav button.owl-next,
+#aym_wrap_banner .aym_wrap_carousel .owl-carousel .owl-nav button.owl-prev  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    position: absolute;
+    bottom: 50%;
+    margin: 0;
+
+
+    background-color: transparent;
+    border-radius: 50%;
+    border: 2px solid black;
+    color: black;
+    font-size: 3.5rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    transition: background .3s, opacity 0.3s ease;;
+    opacity: 0; 
+}
+
+#aym_wrap_banner .aym_wrap_carousel .aym_carousel_banner:hover .owl-nav button.owl-next,
+#aym_wrap_banner .aym_wrap_carousel .aym_carousel_banner:hover .owl-nav button.owl-prev {
+    opacity: 1; 
+}
+
+
+#aym_wrap_banner .aym_wrap_carousel .owl-carousel .owl-nav button.owl-next:hover,
+#aym_wrap_banner .aym_wrap_carousel .owl-carousel .owl-nav button.owl-prev:hover {
+    background-color: #487eeb;
+
+}
+
+#aym_wrap_banner .aym_wrap_carousel .owl-carousel .owl-nav button span,
+#aym_wrap_banner .aym_wrap_carousel .owl-carousel .owl-nav button span {
+    height: 6.2rem;
+}
+
+
+
+#aym_wrap_banner .aym_wrap_carousel .owl-carousel .owl-nav button.owl-next {
+    right: 2%;
+}
+
+#aym_wrap_banner .aym_wrap_carousel .owl-carousel .owl-nav button.owl-prev {
+    left: 2%;
+}
+
+#aym_wrap_banner .aym_wrap_carousel .aym_carousel_banner .aym_carousel_item h2 {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    bottom: 15%;
+    left: 15%;
+    font-size: 7rem;
+    line-height: 7.5rem;
+}
+
+#aym_wrap_banner .aym_wrap_carousel .aym_carousel_banner .aym_carousel_item p {
+    
+    width: 35%;
+    bottom: 25%;
+    height: 25%;
+    position: absolute;
+    left: 10%;
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+
+#aym_wrap_banner .aym_wrap_carousel .aym_carousel_banner .aym_carousel_item a button {
+    background-color: transparent;
+    border: 1px solid black;
+    color: #000;
+    padding: 1% 0;
+    font-size: 1.1rem;
+    width: 11%;
+    position: absolute;
+    top: 68%;
+    left: 10%;
+}
+    
+
+/* ========== BANNER WRAP SECOND ========== */
+
+#aym_wrap_banner_second {background-image: url(/aym_image/aym_back/aym_back_second_banner.jpg); background-repeat: no-repeat; background-size: cover; height: 79vh;}
+
+/* ========== ABOUT US ========== */
+
+#aym_about_us {align-items: center; background-image: url(/aym_image/aym_back/aym_back_about_us.jpg); background-repeat: no-repeat; background-size: cover; border-bottom: 1px solid var(--aym_white); display: flex; gap: 5%; height: 52vh; justify-content: center;}
+#aym_about_us div {align-items: center; display: flex; height: 65%; padding: 3%; width: 41%;}
+#aym_about_us div p {color: var(--aym_black); margin: 0;}
+#aym_about_us .aym_title p {font-size: 615%; line-height: 1.2;}
+#aym_about_us .aym_text p {font-size: 150%; padding-left: 13%;}
+
+
+/* ========== TREATMENT ========== */
+
+#aym__treatment {align-items: center; background-image: url(/aym_image/aym_back/aym_back_treatment_background.jpg); background-repeat: no-repeat; background-size: cover; display: flex; height: 100vh; justify-content: center; width: 100%;}
+#aym__treatment h2 {align-items: baseline; display: flex; font-size: 3rem; flex-direction: column; height: 100%; justify-content: center; padding: 5%; width: 27%;}
+#aym__treatment .aym_wrap_carousel {align-items: center; display: flex; height: 100%; position: relative; width: 73%;}
+#aym__treatment .aym_carousel_item {align-items: center; border-bottom: 2px solid black; border-left: 2px solid black; border-top: 2px solid black; color: #000; cursor: pointer; display: flex; height: 32rem; justify-content: center; overflow: hidden; position: relative; transition: color 0.5s ease, padding 1s ease; width: 100%;}
+#aym__treatment .aym_carousel_item::before {background-image: url(/aym_image/aym_back/aym_back_treatment.jpeg); background-repeat: no-repeat; background-size: cover; content: ""; height: 100%; left: 0; opacity: 0; position: absolute; top: 0; transition: opacity 1s ease; width: 100%;}
+#aym__treatment .aym_carousel_item:hover::before {opacity: 1;}
+#aym__treatment .aym_carousel_item:hover {color: white; padding: 10% 10% 60% 10%;}
+#aym__treatment .aym_carousel_item:not(:hover) {padding: 10%;}
+#aym__treatment .aym_carousel_item span {display: none; font-size: 1.5rem; height: 100%; padding: 80% 15% 0 15%; position: absolute; transition: opacity 1s ease; width: 100%;}
+#aym__treatment .aym_carousel_item:hover span {display: block; opacity: 1;}
+#aym__treatment .aym_carousel_item::before span {display: block;}
+#aym__treatment .aym_carousel_item p {font-size: 3rem; margin: 10%; z-index: 1;}
+#aym__treatment a {align-items: center; bottom: 5%; display: flex; justify-content: center; position: absolute; right: 5%;}
+#aym__treatment a span{font-size: 1.5rem;}
+#aym__treatment a button{background-color: #171bd3; border-radius: 50%; color: white; font-size: 4rem; height: 6rem; width: 6rem;}
+
+/* ========== EXPERIENCES ========== */
+
+#aym_experiences {
+    /* background-image: url(/aym_image/aym_back/aym_back_experiences.jpg);  */
+    background-color: #00959d;
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    display: flex; 
+    height: 104vh; 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#aym_experiences .aym_text {
+    background-color: #487eeb;
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#aym_experiences .aym_text h2 {
+    background-color: tomato;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5.5rem;
+}
+
+#aym_experiences .aym_carousel_experiences {
+    background-color: violet;
+    width: 100%;
+    height: 80%;
+}
+
+#aym_experiences .aym_carousel_experiences .aym_carousel_item {
+    background-color: #87e6f2;
+    width: 100%;
+    height: 46rem;
+    display: flex;
+}
+
+#aym_experiences .aym_carousel_experiences .aym_carousel_item .aym_wrap_images {
+    background-color: darkred;
+    width: 52%;
+    height: 100%;
+    display: flex;
+    align-items: end;
+} 
+
+
+#aym_experiences .aym_carousel_experiences .aym_carousel_item .aym_wrap_images .aym_wrap_small_img {display: flex; height: 30%; justify-content: space-between; padding: 0 3% 0 10%; width: 57%;}
+#aym_experiences .aym_carousel_experiences .aym_carousel_item .aym_wrap_images .aym_wrap_small_img div {height: 100%; width: 29%;}
+#aym_experiences .aym_carousel_experiences .aym_carousel_item .aym_wrap_images .aym_wrap_small_img div img {height: 100%; width: 100%;}
+#aym_experiences .aym_carousel_experiences .aym_carousel_item .aym_wrap_images .aym_wrap_big_img {height: 95%; width: 43%;}
+#aym_experiences .aym_carousel_experiences .aym_carousel_item .aym_wrap_images .aym_wrap_big_img img {height: 100%; width: 100%;}
+
+
+#aym_experiences .aym_carousel_experiences .aym_carousel_item .aym_description {
+    background-color: coral;
+    width: 48%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1%;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* #aym_experiences .aym_wrap_images {align-items: end; display: flex; height: 100%; width: 52%;}
+#aym_experiences .aym_wrap_images .aym_wrap_small_img {display: flex; height: 26%; justify-content: space-between; padding: 0 3% 0 10%; width: 57%;}
+#aym_experiences .aym_wrap_images .aym_wrap_small_img div {height: 100%; width: 29%;}
+#aym_experiences .aym_wrap_images .aym_wrap_small_img div img {height: 100%; width: 100%;}
+#aym_experiences .aym_wrap_images .aym_wrap_big_img {height: 78%; width: 43%;}
+#aym_experiences .aym_wrap_images .aym_wrap_big_img img {height: 100%; width: 100%;}
+#aym_experiences .aym_text {display: flex; flex-direction: column; height: 100%; width: 48%;}
+#aym_experiences .aym_title {height: 50%; width: 100%;}
+#aym_experiences .aym_title h2 {font-size: 5.5rem; padding: 13% 0 0 6%;}
+#aym_experiences .aym_description {height: 50%;width: 100%;}
+#aym_experiences .aym_description p {font-size: 1.5rem; padding: 0 40% 0 20%;} */
+
+/* ========== PARTNERS ========== */
+
+#aym_partners {align-items: center; background-image: url(/aym_image/aym_back/aym_back_about_us.jpg); background-repeat: no-repeat; background-size: cover; display: flex; gap: 5%; height: 52vh; justify-content: center;}
+#aym_partners div {align-items: center; display: flex; height: 65%; padding: 3%; width: 41%;}
+#aym_partners div p {color: var(--aym_black); margin: 0;}
+#aym_partners .aym_title p {font-size: 5rem;}
+#aym_partners .aym_text p {font-size: 150%; padding-left: 18%;}
+
+/* ========== BRANDS ========== */
+
+#aym_brands {background-color: var(--aym_tone_a); height: 66vh; padding: 2% 0 0 5%; position: relative;}
+#aym_brands .aym_carousel_item {align-items: center; border-bottom: 2px solid black; border-left: 2px solid black; border-top: 2px solid black; cursor: pointer; display: flex; height: 20rem; justify-content: center;}
+#aym_brands .aym_carousel_item p { font-size: 1.2rem; margin: 60% 0 0 62%; z-index: 1;}
+
+
+#aym_brands .aym_carousel_item::before {
+    background-image: url(/aym_image/aym_back/aym_back_brands.jpg);
+     background-repeat: no-repeat;
+     background-size: cover;
+     border-bottom: 2px solid black; border-left: 2px solid black; border-top: 2px solid black;
+     content: "";
+     height: 100%;
+     left: 0;
+     opacity: 0;
+     position: absolute;
+     top: 0;
+     transition: opacity 1s ease;
+     width: 100%;
+}
+
+#aym_brands .aym_carousel_item:hover::before {
+    opacity: 1;
+}
+
+#aym_brands .aym_carousel_item:hover {
+    color: white;
+}
+
+
+
+
+#aym_brands a {align-items: center; bottom: 12%; display: flex; justify-content: center; position: absolute; right: 5%;}
+#aym_brands a span{font-size: 1.5rem;}
+#aym_brands a button{background-color: #171bd3; border-radius: 50%; color: white; font-size: 4rem; height: 6rem; width: 6rem;}
+
+/* ========== FIND US ========== */ 
+
+#aym_find_us {align-items: center; background-image: url(/aym_image/aym_back/aym_back_find_us.jpg); background-repeat: no-repeat; background-size: cover; color: var(--aym_white); display: flex; flex-direction: column; height: 100vh; justify-content: center; width: 100%;}
+#aym_find_us h2 {font-size: 5.5rem; margin-bottom: 1%;}
+#aym_find_us table {border: 1px solid var(--aym_white); border-collapse: collapse; color: var(--aym_white); font-size: 1.5rem;}
+#aym_find_us table td {border: 1px solid var(--aym_white); color: var(--aym_white); height: 75px; padding-left: 40px; width: 345px;}
+#aym_find_us button {background-color: #ebf2fe; color: var(--aym_black); font-size: 1.2rem; height: 70px; margin-left: 11px; margin-right: 11px; margin-top: 30px; width: 333px;}
+
+/* ========== CONTACT US ========== */
+
+#aym_contact_us {background-image: url(/aym_image/aym_back/aym_back_contact_us.jpg); background-repeat: no-repeat; background-size: cover; display: flex; height: 80vh; width: 100%;}
+#aym_contact_us .aym_text {height: 100%; padding: 8% 10% 0% 10%; width: 50%;}
+#aym_contact_us .aym_text h2 {font-size: 5rem; line-height: 6rem; margin-bottom: 3%;}
+#aym_contact_us .aym_text p {font-size: 1.5rem; }   
+#aym_contact_us .aym_carousel_contact {
+    height: 100%; 
+    width: 50%;
+    padding-top: 8%;
+}
+
+#aym_contact_us .aym_carousel_contact .aym_carousel_item {
+    display: flex;
+    flex-direction: column;
+    height: 20rem;
+}
+
+#aym_contact_us .aym_carousel_contact .aym_carousel_item p {
+    font-size: 1.5rem;
+    margin-bottom: 3%;
+}
+
+ 
+.aym_carousel_contact .aym_form {
+    background-color: var(--aym_tone_a);
+    border-bottom: 1px solid black;
+    display: flex;
+    gap: 2%;
+    height: 6rem;
+    justify-content: center;
+    width: 79%;
+}
+.aym_carousel_contact .aym_form input {border: 1px solid black; color: black; font-size: 1.2rem; height: 86%; padding: 3%; width: 50%;}
+
+
+.aym_carousel_contact .aym_form input:hover {
+    background-color: #2029f7;
+    color: white;
+}
+
+
+.aym_carousel_contact .aym_form input:hover::placeholder {
+    color: #FFFFFF; 
+}
+
+.aym_carousel_contact .aym_form .aym_submit {
+
+    border: 1px solid black;
+    color: #000000;
+    font-size: 1.2rem;
+    height: 4rem;
+    left: 60%;
+    position: absolute;
+    width: 19%;
+    bottom: 12%;
+    padding: 1%;
+}
+
+
+#aym_contact_us .owl-carousel .owl-nav {
+    margin: 1%;
+    display: flex;
+}
+
+#aym_contact_us .owl-carousel .owl-nav button.owl-next {
+    background: transparent;
+    border: 1px solid black;
+    color: #000000;
+    font-size: 1.2rem;
+    height: 4rem;
+    left: 60%;
+    position: absolute;
+    width: 19%;
+    bottom: 39%;
+    margin: 0;
+}
+
+.aym_carousel_contact .owl-nav .owl-prev {
+    display: none;
+}
+
+
+#aym_contact_us .owl-carousel .owl-dots {
+    position: absolute;
+    bottom: 42%;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.7rem;
+}
+
+#aym_contact_us .owl-carousel .owl-dots .owl-dot {
+    position: unset;
+    margin: 0;
+}
+
+#aym_contact_us .owl-carousel .owl-dots .owl-dot span {
+    width: 9px;
+    height: 9px;
+    background: transparent;
+    border-radius: 50%;
+    border: 1px solid;
+    margin: 0;
+}
+
+#aym_contact_us .owl-carousel .owl-dots .owl-dot.active span {
+    background: black;
+}
+
+
+
+
+/* ========== FOOTER ========== */
+
+#aym_wrap_footer {background-color: var(--aym_tone_a); border-top: 1px solid black; height: 49vh; width: 100%;}
+#aym_wrap_footer .aym_info {display: flex; height: 80%; width: 100%;}
+#aym_wrap_footer .aym_info .aym_section_1 {height: 100%; padding-left: 5%; padding-top: 3%; width: 26%;}
+#aym_wrap_footer .aym_info .aym_section_1 .aym_logo{font-family: 'Bely'; font-size: 4rem;}
+#aym_wrap_footer .aym_info .aym_section_2 {font-size: 1.4rem; height: 100%; line-height: 2rem; padding-top: 3%; width: 14%;}
+#aym_wrap_footer .aym_info .aym_section_3 {font-size: 1.4rem; height: 100%; line-height: 2rem; padding-top: 3%; width: 14%;}
+#aym_wrap_footer .aym_info .aym_section_4 {font-size: 1.4rem; height: 100%; line-height: 2rem; padding-top: 3%; width: 14%;}
+#aym_wrap_footer .aym_info .aym_section_5 {display: flex; flex-direction: column; font-size: 1.4rem; height: 100%; line-height: 2rem; padding-left: 2%; padding-top: 3%; width: 32%;}
+#aym_wrap_footer .aym_info .aym_section_5 p { margin-bottom: 3%;}
+#aym_wrap_footer .aym_info .aym_section_5 input {border: 1px solid black; color: black; font-size: 1.2rem; height: 23%; padding: 3%; width: 66%;}
+#aym_wrap_footer .aym_info .aym_section_5 input::placeholder {color: #bec1c8;}
+#aym_wrap_footer .aym_info .aym_section_5 div {display: flex; height: 22%;}
+#aym_wrap_footer .aym_info .aym_section_5 div button {background: transparent; border: 1px solid black; color: black; font-size: 1.2rem; height: 100%; margin: 2% 0; width: 35%;}
+#aym_wrap_footer .aym_info .aym_section_5 div svg {height: 3rem; margin: 3.5% 0 0 35%; width: 3rem;}
+#aym_wrap_footer .aym_data {align-items: center; display: flex; height: 20%; width: 100%;}
+#aym_wrap_footer .aym_data p {font-size: 1.3rem; margin-left: 6%;}
+
+

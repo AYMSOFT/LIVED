@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+/*WRAP PAGINADOR*/
+.aym_wrap_paginador {text-align: center; padding-top: 15px;}
+.aym_wrap_paginador a {background-color: #3E93DA; border: 1px solid #3E93DA; border-radius: 3px; color: white; cursor: pointer; font-size: .7em; margin: 0 1px; padding: 5px; transition: background-color .3s ease;}
+.aym_wrap_paginador a:hover {background-color: white; color: #3E93DA;}
+.aym_wrap_paginador a.aym_page_active {background-color: white; color: #3E93DA;}
+.aym_info_paginador {font-size: .8em; text-align: center;  padding: 10px 0;margin: 20px;}

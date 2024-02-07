@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+/*
+	CSS Stylesheet Crop
+	July 2019
+	Powered by AyMsoft
+*/
+
+/*FORM*/
+/*.aym_wrap_form {margin: 0 15px !important;}
+.aym_wrap_form * {text-align: left;}
+.aym_wrap_form h2 {color: #0A556D;font-size: 1.5em;text-align: left;padding: 0 20px;}
+.aym_wrap_form .aym_open_file {color: #0A556D; padding-bottom: 15px; text-align: left; width: 100%;}*/
+
+/*CROP IMAGES*/
+.aym_frm_images {max-width: 750px !important;}
+.aym_frm_images .aym_wrap_submit {display: flex; justify-content: center;}
+.aym_frm_images .aym_wrap_submit button { display: inline-block; margin: 0 15px !important;}
+.aym_frm_images .aym_frm_image {background: 0 !important; border: 0 !important; cursor: unset !important; height: auto;}
+.aym_frm_images .aym_frm_image > span {align-items: center; border-radius: 50%; display: inline-flex; font-size: 3em; font-weight: bold; height: 250px; justify-content: center; left: calc(50% - 100px); position: absolute; top: 0; width: 250px;}
+.aym_frm_images .cr-image  {width: auto;}
+.aym_frm_images .cr-boundary.uploaded:after {align-items: center; background: rgba(48,174,220,0.5); border-radius: 50%; color: #fff; content: '\f00c'; display: flex; font-family: 'Font Awesome 5 Free'; font-size: 5em; font-weight: 900; height: 100%; justify-content: center; left: 0; position: absolute; top: 0; width: 100%; z-index: 999;}
+.aym_frm_images .cr-slider  {width: 100% !important; cursor: pointer;}
+
+/*ERROR*/
+.error .cr-boundary { border: solid 2px; color:#DF4141; }

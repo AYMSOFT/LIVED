@@ -1,0 +1,4 @@
+@charset "UTF-8";
+body{align-items: center; background: #fff url('/admin/aym_image/aym_back/aym_preloader_back.jpg') no-repeat center / cover; display: flex; height: 100%; margin:0;}
+#aym_loading {display: flex; align-items: center; height: 100%; justify-content: center; margin: 0; position: absolute; top: 0; left:0; width: 100%; z-index: 999;}
+#aym_loading img {height: auto; max-width: 300px;}

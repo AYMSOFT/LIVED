@@ -1,0 +1,9 @@
+@charset "UTF-8";
+/*
+	CSS Stylesheet Module Card AyMcore v. 14.0
+	Oct 2019
+*/
+
+.aym_wrap_validate {border: 0 !important; display: flex; align-items: center !important; flex-flow: row !important;}
+.aym_wrap_validate .aym_wrap_radio {display: flex; align-items: flex-start; flex-flow: column;}
+.aym_wrap_validate .aym_wrap_radio > div {margin: 0 !important; margin-left: 20px !important;}

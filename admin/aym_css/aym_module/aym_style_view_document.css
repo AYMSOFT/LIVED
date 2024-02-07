@@ -1,0 +1,14 @@
+@charset "UTF-8";
+/*
+	CSS Stylesheet Module View Documennt Modal AyMcore v. 14.0
+	Oct 2019
+*/
+
+/*BOX*/
+.aym_window-box {height: 90%;max-width: none; width: 90% !important;}
+.aym_window-wrapper,
+.aym_window-content {height: 100% !important; max-height: none !important;}
+
+/*DOCUMENT*/
+.aym_show_document {height: calc(100% - 20%);}
+.aym_show_document iframe{height: 100%; width: 100%;}

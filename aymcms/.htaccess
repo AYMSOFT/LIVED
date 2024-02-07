@@ -1,0 +1,122 @@
+<IfModule mod_rewrite.c>
+
+	RewriteEngine On
+	RewriteCond %{SCRIPT_FILENAME} !-d
+	RewriteCond %{SCRIPT_FILENAME} !-f
+
+	# REDIRECCION DE HTTP A HTTPS
+	#RewriteCond %{HTTP_HOST} !^www\.
+	#RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301] 
+
+	#Now, rewrite to HTTPS:
+	RewriteCond %{HTTPS} off
+	RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+	
+	
+	#=======================================================================================
+	#====================================AYMCMS MODULES===================================== 
+	#=======================================================================================	
+
+	
+		#====================================================
+		#======================= CMS ========================
+		#====================================================
+	
+			RewriteRule ^admcms$ /aymcms/aym_index.php?option=admcms&alr=aymsoft [L]
+			RewriteRule ^admcms/([^/]*)$ /aymcms/aym_index.php?option=admcms&url_pag=$1&alr=aymsoft [L]
+			RewriteRule ^admcms/([^/]*)/([0-9]*)$ /aymcms/aym_index.php?option=admcms&url_pag=$1&pag_id=$2&alr=aymsoft [L]
+			RewriteRule ^admcms/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /aymcms/aym_index.php?option=admcms&url_pag=$1&pag_cat_id=$2&lan_id=$3&aym_order=$4&aym_order_type=$5&aym_page_size=$6&aym_page=$7&alr=aymsoft [L] 
+			RewriteRule ^admcms/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /aymcms/aym_index.php?option=admcms&url_pag=$1&pag_id=$2&pag_cat_id=$3&lan_id=$4&aym_order=$5&aym_order_type=$6&aym_page_size=$7&aym_page=$8&alr=aymsoft [L] 
+			
+			RewriteRule ^actioncms$ /aymcms/aym_component/aym_cms/aym_adm_cms.php [L]
+			
+		#====================================================
+		#================== BANNERS =========================
+		#====================================================
+	
+			RewriteRule ^admbanner$ /aymcms/aym_index.php?option=admbanner&alr=aymsoft [L]
+			RewriteRule ^admbanner/([^/]*)$ /aymcms/aym_index.php?option=admbanner&url_pag=$1&alr=aymsoft [L]
+			RewriteRule ^admbanner/([^/]*)/([0-9]*)$ /aymcms/aym_index.php?option=admbanner&url_pag=$1&ban_id=$2&alr=aymsoft [L]
+			RewriteRule ^admbanner/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /aymcms/aym_index.php?option=admbanner&url_pag=$1&ban_cat_id=$2&lan_id=$3&aym_order=$4&aym_order_type=$5&aym_page_size=$6&aym_page=$7&alr=aymsoft [L] 
+			RewriteRule ^admbanner/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /aymcms/aym_index.php?option=admbanner&url_pag=$1&ban_id=$2&ban_cat_id=$3&lan_id=$4&aym_order=$5&aym_order_type=$6&aym_page_size=$7&aym_page=$8&alr=aymsoft [L] 
+
+
+			RewriteRule ^actionbanner$ /aymcms/aym_component/aym_banner/aym_adm_banner.php [L]
+			
+		#====================================================
+		#===================== NEWS =========================
+		#====================================================
+	
+			RewriteRule ^admnews$ /aymcms/aym_index.php?option=admnews&alr=aymsoft [L]
+			RewriteRule ^admnews/([^/]*)$ /aymcms/aym_index.php?option=admnews&url_pag=$1&alr=aymsoft [L]
+			RewriteRule ^admnews/([^/]*)/([0-9]*)$ /aymcms/aym_index.php?option=admnews&url_pag=$1&new_id=$2&alr=aymsoft [L]
+			RewriteRule ^admnews/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /aymcms/aym_index.php?option=admnews&url_pag=$1&new_cat_id=$2&lan_id=$3&aym_order=$4&aym_order_type=$5&aym_page_size=$6&aym_page=$7&alr=aymsoft [L] 
+			RewriteRule ^admnews/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /aymcms/aym_index.php?option=admnews&url_pag=$1&new_id=$2&new_cat_id=$3&lan_id=$4&aym_order=$5&aym_order_type=$6&aym_page_size=$7&aym_page=$8&alr=aymsoft [L] 
+			
+			RewriteRule ^actionnews$ /aymcms/aym_component/aym_news/aym_adm_news.php [L]
+			
+		#====================================================
+		#================== LIST MAIL =======================
+		#====================================================
+		
+			RewriteRule ^admlistmail$ /aymcms/aym_index.php?option=admlistmail&alr=aymsoft [L]
+			RewriteRule ^admlistmail/([^/]*)$ /aymcms/aym_index.php?option=admlistmail&url_pag=$1&alr=aymsoft [L]
+			RewriteRule ^admlistmail/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /aymcms/aym_index.php?option=admlistmail&url_pag=$1&aym_order=$2&aym_order_type=$3&aym_page_size=$4&aym_page=$5&alr=aymsoft [L] 
+			
+			#ELIMINAR UN COREO
+			RewriteRule ^actionlistmail$ /aymcms/aym_component/aym_list_mail/aym_adm_list_mail.php [L]
+			
+			#EXPORTAR A EXCEL 
+			RewriteRule ^exportlistmail$ /aymcms/aym_module/aym_list_mail/aym_export_mail.php?alr=aymsoft [L]
+			
+		#====================================================
+		#===================== FAQ ==========================
+		#====================================================
+		
+			RewriteRule ^admfaq$ /aymcms/aym_index.php?option=admfaq&alr=aymsoft [L]
+			RewriteRule ^admfaq/([^/]*)$ /aymcms/aym_index.php?option=admfaq&url_pag=$1&alr=aymsoft [L]
+			RewriteRule ^admfaq/([^/]*)/([0-9]*)$ /aymcms/aym_index.php?option=admfaq&url_pag=$1&faq_id=$2&alr=aymsoft [L]
+			RewriteRule ^admfaq/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /aymcms/aym_index.php?option=admfaq&url_pag=$1&aym_order=$2&aym_order_type=$3&aym_page_size=$4&aym_page=$5&alr=aymsoft [L] 
+			RewriteRule ^admfaq/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /aymcms/aym_index.php?option=admfaq&url_pag=$1&faq_cat_id=$2&aym_order=$3&aym_order_type=$4&aym_page_size=$5&aym_page=$6&alr=aymsoft [L] 
+			RewriteRule ^admfaq/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /aymcms/aym_index.php?option=admfaq&url_pag=$1&faq_id=$2&faq_cat_id=$3&aym_order=$4&aym_order_type=$5&aym_page_size=$6&aym_page=$7&alr=aymsoft [L] 
+
+			#COMPONENTE
+			RewriteRule ^actionfaq$ /aymcms/aym_component/aym_faq/aym_adm_faq.php [L]
+			
+			
+			
+		#====================================================
+		#=================== GALERY =========================
+		#====================================================
+	
+			RewriteRule ^admgallery$ /aymcms/aym_index.php?option=admgallery&alr=aymsoft [L]
+			RewriteRule ^admgallery/([^/]*)$ /aymcms/aym_index.php?option=admgallery&url_pag=$1&alr=aymsoft [L]
+			RewriteRule ^admgallery/([^/]*)/([0-9]*)$ /aymcms/aym_index.php?option=admgallery&url_pag=$1&gal_id=$2&alr=aymsoft [L]
+			RewriteRule ^admgallery/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /aymcms/aym_index.php?option=admgallery&url_pag=$1&aym_order=$2&aym_order_type=$3&aym_page_size=$4&aym_page=$5&alr=aymsoft [L] 
+			RewriteRule ^admgallery/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /aymcms/aym_index.php?option=admgallery&url_pag=$1&lan_id=$2&gal_cat_id=$3&gal_sub_cat_id=$4&aym_order=$5&aym_order_type=$6&aym_page_size=$7&aym_page=$8&alr=aymsoft [L] 
+			RewriteRule ^admgallery/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /aymcms/aym_index.php?option=admgallery&url_pag=$1&gal_id=$2&lan_id=$3&gal_cat_id=$4&gal_sub_cat_id=$5&aym_order=$6&aym_order_type=$7&aym_page_size=$8&aym_page=$9&alr=aymsoft [L] 
+			
+			RewriteRule ^actiongallery$ /aymcms/aym_component/aym_gallery/aym_adm_gallery.php [L]
+
+		#====================================================
+		#=================== AymFinder ======================
+		#====================================================
+
+		RewriteRule ^aymfindermanage$ /aymcms/aym_component/aym_finder/aym_adm_finder.php [L]
+			
+# ================================================================================================ #
+# ========================================= AJAX URL ============================================= #
+# ================================================================================================ #
+
+	RewriteRule ^complement/([^/]*)$ /aymcms/aym_complement/aym_$1/aym_com_list_$1.php [L] # REGLA PARA CARGAR LOS COMPLEMENTOS DE LAS LISTAS 
+	RewriteRule ^complement/([^/]*)/([^/]*)$ /aymcms/aym_complement/aym_$1/aym_com_$2.php [L] # REGLA PARA OCULTAR LA URL DE LOS JS
+	RewriteRule ^complement/([^/]*)/list/search$ /aymcms/aym_complement/aym_$1/aym_com_list_search_$1.php [L] # REGLA PARA CARGAR LAS LISTAS DE BUSQUEDA DENTRO DEL LISTAR
+	RewriteRule ^complement/([^/]*)/([^/]*)/list/search$ /aymcms/aym_complement/aym_$1/aym_com_list_search_$1_$2.php [L] # REGLA PARA CARGAR LAS LISTAS DE BUSQUEDA DENTRO DEL LISTAR
+
+
+	
+
+	
+</IfModule>
+	
+	

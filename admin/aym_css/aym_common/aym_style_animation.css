@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+/*ANIMATIONS EFFECT*/
+.aym_effects {-webkit-animation-duration: .5s; animation-duration: .5s; -webkit-animation-fill-mode: both; animation-fill-mode: both;}
+
+@keyframes fadeInUp {
+    0% {opacity: 0; -webkit-transform: translate3d(0, 50%, 0); transform: translate3d(0, 50%, 0);}
+    100% {opacity: 1; -webkit-transform: none; transform: none;}
+}
+@keyframes fadeInDown {
+    0% {opacity: 0; -webkit-transform: translate3d(0, -50%, 0); transform: translate3d(0, -50%, 0);}
+    100% {opacity: 1; -webkit-transform: none; transform: none;}
+}
+@keyframes fadeInRight {
+    0% {opacity: 0; -webkit-transform: translate3d(-50%, 0, 0); transform: translate3d(-50%, 0, 0);}
+    100% {opacity: 1; -webkit-transform: none; transform: none;}
+}
+@keyframes fadeInLeft {
+    0% {opacity: 0; -webkit-transform: translate3d(50%, 0, 0); transform: translate3d(50%, 0, 0);}
+    100% {opacity: 1; -webkit-transform: none; transform: none;}
+}
+.aym_fadein_up {-webkit-animation-name: fadeInUp; animation-name: fadeInUp;}
+.aym_fadein_down {-webkit-animation-name: fadeInDown; animation-name: fadeInDown;}
+.aym_fadein_right {-webkit-animation-name: fadeInRight; animation-name: fadeInRight;}
+.aym_fadein_left {-webkit-animation-name: fadeInLeft; animation-name: fadeInLeft;}
+
+/* PRELOADER */
+.aym_preloader {text-align: center;}
+.aym_preloader div {display: inline-block; padding: 20px 0; position: relative;}
+.aym_preloader div::after {animation: preloader 1s linear infinite; border: 3px solid #ccc; border-radius: 50%; border-top: 3px solid #30aedc; content: ''; display: inline-block; height: 30px; position: relative; width: 30px;}
+@keyframes preloader {
+	0% {transform: rotate(0deg);}
+	100% {transform: rotate(360deg);}
+}

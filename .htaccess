@@ -1,0 +1,105 @@
+RewriteEngine on
+
+#EVITAR LISTADO DE DIRECTIRIOS
+Options -Indexes
+
+# REDIRECCION DE HTTP A HTTPS
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301] 
+
+#Now, rewrite to HTTPS:
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# CODIFICACION .GZIP
+
+<FilesMatch "\.(js|css|ico|pdf|jpg|jpeg|png|gif|php)$">
+SetOutputFilter DEFLATE
+</FilesMatch>
+
+##Tweaks##
+Header set X-Frame-Options SAMEORIGIN
+Header set Access-Control-Allow-Origin *
+# CACHÉ
+
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/jpg "access 1 year"
+ExpiresByType image/jpeg "access 1 year" 
+ExpiresByType image/gif "access 1 year"
+ExpiresByType image/png "access 1 year"
+ExpiresByType text/css "access 1 month"
+ExpiresByType text/html "access 1 month"
+ExpiresByType application/pdf "access 1 month"
+ExpiresByType text/x-javascript "access 1 month"
+ExpiresByType application/x-shockwave-flash "access 1 month"
+ExpiresByType image/x-icon "access 1 year"
+ExpiresDefault "access 1 month"
+</IfModule>
+
+
+# ERROR 404
+ErrorDocument 400 /404
+ErrorDocument 401 /404
+ErrorDocument 403 /404
+ErrorDocument 404 /404
+ErrorDocument 500 /404
+ErrorDocument 500 /404
+
+# REGLA ERROR 404
+RewriteRule ^404$ /index.php?pag_id=0&alr=aymsoft [L]
+
+
+#======================================================
+#======================= HOME ====================
+#======================================================
+RewriteRule ^inicio$ /index.php?option=home&alr=aymsoft [L]
+
+
+#======================================================
+#======================= NOSOTROS =======================
+#======================================================
+RewriteRule ^nosotros/([^/]*)/([0-9]*)$ /index.php?option=corporate&pag_tit=$1&pag_id=$2&alr=aymsoft [L]
+
+#======================================================
+#======================= CONTACT ======================
+#======================================================
+RewriteRule ^contacto$ /index.php?option=corporate&pag_id=2&alr=aymsoft [L]
+RewriteRule ^send_contact$ /aymcms/aym_component/aym_contact/aym_adm_contact_out.php?alr=aymsoft [L]
+
+
+#======================================================
+#======================= PRENSA =======================
+#======================================================
+
+#SALA DE PRENSA 
+RewriteRule ^prensa/([^/]*)/([0-9]*)$ /index.php?option=news&pag_tit=$1&pag_id=$2&new_cat_id=2&alr=aymsoft [L]
+RewriteRule ^prensa/([^/]*)/([^/]*)/([0-9]*)$ /index.php?option=news&pag_tit=Blog&pag_id=21&new_id=$3&new_cat_id=2&alr=aymsoft [L]
+
+#======================================================
+#==================== SERVICIOS ================
+#======================================================
+RewriteRule ^servicios/([^/]*)/([0-9]*)$ /index.php?option=service&pag_tit=$1&pag_id=$2&alr=aymsoft [L]
+
+
+#======================================================
+#======================= LIST MAIL ===================
+#======================================================
+RewriteRule ^send_mail$ /aymcms/aym_component/aym_list_mail/aym_adm_list_mail_out.php?alr=aymsoft [L]
+
+
+# ================================================================================================ #
+# ========================================= AJAX URL ============================================= #
+# ================================================================================================ #
+
+	
+	RewriteRule ^complement/([^/]*)$ /aymsite/aym_complement/aym_$1/aym_com_list_$1.php [L] # REGLA PARA CARGAR LOS COMPLEMENTOS DE LAS LISTAS 
+	RewriteRule ^complement/([^/]*)/([^/]*)$ /aymsite/aym_complement/aym_$1/aym_com_$2.php [L] # REGLA PARA OCULTAR LA URL DE LOS JS
+	RewriteRule ^complement/([^/]*)/list/search$ /aymsite/aym_complement/aym_$1/aym_com_list_search_$1.php [L] # REGLA PARA CARGAR LAS LISTAS DE BUSQUEDA DENTRO DEL LISTAR
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php80” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php80 .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

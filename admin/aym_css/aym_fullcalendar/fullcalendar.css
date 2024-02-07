@@ -1,0 +1,28 @@
+@charset "UTF-8";
+/*
+	CSS Stylesheet General AyMcore v. 14.0
+	April 2019
+*/
+
+
+.fc-widget-header, .fc-widget-content{font-size: 1em;}
+.fc-widget-header.fc-past{font-size: .9em;}
+.fc-center h2 {color: #6dc3e1!important;}
+.fc-button, .fc-button-active {color: #fff;background-color: #39afda;border-radius: 0;box-shadow: none;border: 0;}
+.fc-button:hover, .fc-button:active, .fc-button-active:hover, .fc-button-active:active{background-color: var(--aym_color);}
+.fc-button:focus, .fc-button:not(:disabled):active:focus, .fc-button-active:focus{box-shadow: none;border: 0;}
+.fc-button-primary:disabled {background-color: #7a95ac;}
+.fc-button-primary:not(:disabled).fc-button-active{background-color: #327599;}
+.fc-center h2{font-size: 1.2em;text-transform: uppercase;color: var(--aym_color_dark);}
+.fc-button-group>.fc-button:not(:first-child) {margin-left: 3px!important};
+.fc-resource-area.fc-widget-header{width: 20% !important;}
+.fc-timeline { max-height: 65vh!important;}
+.fc-license-message{display: none !important;}
+.fc-timeline-event {border-radius: 10px;display: flex;align-items: center;margin-bottom: 0;padding: 6px;background-color: var(--aym_color);border: 0;text-transform: lowercase;}
+.fc-timeline{ max-height: 50vh;overflow: auto;padding-bottom: 20px;margin-bottom: 20px;}
+.fc-timeline-event .fc-title {overflow: scroll;}
+
+@media screen and (max-width: 500px){
+    .fc-widget-header, .fc-widget-content{font-size: .9em;}
+    .fc-resource-area.fc-widget-header{width: 50% !important;}
+}

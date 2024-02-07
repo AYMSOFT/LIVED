@@ -1,0 +1,195 @@
+<IfModule mod_rewrite.c>
+
+	RewriteEngine On
+	RewriteCond %{SCRIPT_FILENAME} !-d
+	RewriteCond %{SCRIPT_FILENAME} !-f
+
+	# REDIRECCION DE HTTP A HTTPS
+	#RewriteCond %{HTTP_HOST} !^www\.
+	#RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301] 
+
+	#Now, rewrite to HTTPS:
+	RewriteCond %{HTTPS} off
+	RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+	
+#=======================================================================================
+#====================================AYMCORE============================================ 
+#=======================================================================================	
+	
+	#=======================================================================================
+	#====================================MODULOS DE SEGURIDAD=============================== 
+	#=======================================================================================
+	
+	
+	
+	    #LOGIN MICROSOFT
+		RewriteRule ^login-microsoft$ /test/examples/server/index.php [L]
+		RewriteRule ^send-login-microsoft$ /aymsite/aym_component/aym_security/aym_validate_login_authentication.php [L]
+
+		#LOGOUT MICROSOFT
+		RewriteRule ^logout-microsoft$ /test/examples/server/logout.php [L]
+		
+		#LOGIN
+		RewriteRule ^login$ /admin/index.php?alr=aymsoft [L]
+		#RewriteRule ^send-login$ /admin/aym_component/aym_security/aym_validate_login.php [L]
+		RewriteRule ^send-login$ /admin/aym_component/aym_index.php?option=$0 [L]
+		
+		#LOGOUT
+		RewriteRule ^logout$ /admin/aym_module/aym_security/aym_exit.php [L]
+
+		#ENLACE DE RECUPERACIÓN / FORGOT YOUR PASSWORD
+		RewriteRule ^recovery/([0-9]*)/([^/]*)/([^/]*)/([^/]*)/([^/]*)$ /admin/aym_component/aym_index.php?aym_rec=c9e3fe6356ede0c47dd4c19895fab321&option=recovery&use_id=$1&use_pwd=$2&use_pwd_ses=$3&aym_pk=$4&aym_ps=$5 [L] 
+		
+		#GET FORM TO CHANGE PASS
+		RewriteRule ^change-request-password$ /admin/index.php?option=aym_change_request_password&alr=aymsoft [L]
+
+		#CHANGE PASS FROM RECOVERY LINK 
+		RewriteRule ^send-change-request-password$ /admin/aym_component/aym_index.php?option=change-password&alr=aymsoft [L]
+		
+		#REQUEST PASS 
+		RewriteRule ^request-password$ /admin/index.php?option=aym_request_password&alr=aymsoft [L]
+		RewriteRule ^send-request-password$ /admin/aym_component/aym_index.php?option=$0 [L]
+		
+		#RESET PASS
+		RewriteRule ^reset-password$ /admin/index.php?option=aym_reset_password&alr=aymsoft [L]		
+
+		#CHANGE PASS
+		RewriteRule ^changepass$ /admin/aym_index.php?option=my_account&url_pag=aym_change_pass&alr=aymsoft [L]
+		RewriteRule ^sendchangepass$ /admin/aym_component/aym_user/aym_adm_user.php [L]
+		
+		#RewriteRule ^change-password$ /admin/aym_index.php?option=change-password&alr=aymsoft [L]
+		#RewriteRule ^send-change-password$ /admin/aym_component/aym_index.php?option=$0 [L]
+
+		#WELCOME
+		RewriteRule ^welcome$ /admin/aym_index.php?option=welcome&alr=aymsoft [L]
+		
+		# DASHBOARD
+		RewriteRule ^dashboard$ /admin/aym_index.php?option=dashboard&alr=aymsoft [L]
+		# EXPORTAR DASHBOARD
+		RewriteRule ^exportdashboard$ /admin/aym_module/aym_dashboard/aym_export_dashboard.php?option=dashboard&alr=aymsoft [L] 
+		
+		#ERROR 	
+		RewriteRule ^error$ /admin/index.php?aym_error=error&alr=aymsoft [L]
+	
+	#=======================================================================================
+	#====================================ACCESS MODULES==================================== 
+	#=======================================================================================	
+	
+		#ABOUT
+		RewriteRule ^about$ /admin/aym_module/aym_security/aym_about.php?alr=aymsoft [L]	
+			
+	
+	#=======================================================================================
+	#========================================= HELP ======================================== 
+	#=======================================================================================	
+	
+		#HELP OUTSIDE
+		RewriteRule ^login-help$ /admin/aym_module/aym_help/aym_login_help.php [L]	
+		
+		#HELP INSIDE
+		RewriteRule ^help$ /admin/aym_index.php?option=help&url_pag=aym_help&alr=aymsoft [L]
+		
+		# FEEDBACK 
+		RewriteRule ^feedback$ /admin/aym_index.php?option=feedback&url_pag=aym_feedback&alr=aymsoft [L] 
+		RewriteRule ^actionhelp$ /admin/aym_component/aym_help/aym_adm_feedback.php?alr=aymsoft [L]
+
+		#TERMS AND CONDITIONS
+		RewriteRule ^terms$ /admin/aym_module/aym_terms/aym_terms.php?alr=aymsoft [L]
+		
+		
+		
+		
+			
+	
+	#=======================================================================================
+	#====================================BASIC MODULES==================================== 
+	#=======================================================================================	
+	
+		#MY ACCOUNT
+		RewriteRule ^myaccount$ /admin/aym_index.php?option=my_account&url_pag=aym_view_user&alr=aymsoft [L] 
+
+		#IMAGEN DEL USUARIO
+		RewriteRule ^userimage/([0-9]*)$ /admin/aym_module/aym_user/aym_add_user_image.php?use_id=$1 [L]
+		#ELIMINAR IMAGEN USUARIO
+		RewriteRule ^userimage/([0-9]*)/([^/]*)$ /admin/aym_component/aym_user/aym_adm_user.php?use_id=$1&action=$2 [L]
+
+		#=======================================================================================
+		#==================================== ADMINISTRAR USUARIO ==============================
+		#=======================================================================================	
+
+		#USER
+		RewriteRule ^admuser$ /admin/aym_index.php?option=admuser&alr=aymsoft [L]
+		RewriteRule ^admuser/([^/]*)$ /admin/aym_index.php?option=admuser&url_pag=$1&alr=aymsoft [L] 
+		RewriteRule ^admuser/([^/]*)/([0-9]*)$ /admin/aym_index.php?option=admuser&url_pag=$1&use_id=$2&alr=aymsoft [L] 
+		RewriteRule ^admuser/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /admin/aym_index.php?option=admuser&url_pag=$1&aym_order=$2&aym_order_type=$3&aym_page_size=$4&aym_page=$5&alr=aymsoft [L] 
+		RewriteRule ^admuser/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /admin/aym_index.php?option=admuser&url_pag=$1&use_id=$2&aym_order=$3&aym_order_type=$4&aym_page_size=$5&aym_page=$6&alr=aymsoft [L] 
+		RewriteRule ^admuser/([^/]*)/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /admin/aym_index.php?option=admuser&url_pag=$1&sta_id=$2&use_typ_id=$3&aym_order=$4&aym_order_type=$5&aym_page_size=$6&aym_page=$7&alr=aymsoft [L] 
+		RewriteRule ^admuser/([^/]*)/([0-9]*)/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /admin/aym_index.php?option=admuser&url_pag=$1&use_id=$2&sta_id=$3&use_typ_id=$4&aym_order=$5&aym_order_type=$6&aym_page_size=$7&aym_page=$8&alr=aymsoft [L] 
+				
+		#AGREGAR UN USUARIO
+		RewriteRule ^actionuser$ /admin/aym_component/aym_user/aym_adm_user.php [L]
+		
+		#ELIMINAR UN USUARIO
+		RewriteRule ^actionuser/([0-9]*)$ /admin/aym_component/aym_user/aym_adm_user.php?action=D&use_id=$1 [L]
+
+		#REGISTRO DE ENTRADAS / LOG
+		RewriteRule ^loguser/([0-9]*)$ /admin/aym_module/aym_user/aym_list_user_log.php?use_id=$1 [L]
+		RewriteRule ^loguser/([0-9]*)/([0-9]*)/([0-9]*)$ /admin/aym_module/aym_user/aym_list_user_log.php?use_id=$1&aym_page_size=$2&aym_page$3 [L]
+
+		#USER PROFILE
+        RewriteRule ^admuserprofile$ /admin/aym_index.php?option=admuser&alr=aymsoft [L]
+		RewriteRule ^admuserprofile/([^/]*)$ /admin/aym_index.php?option=admuser&url_pag=$1&alr=aymsoft [L] 
+		RewriteRule ^admuserprofile/([^/]*)/([0-9]*)$ /admin/aym_index.php?option=admuser&url_pag=$1&use_id=$2&alr=aymsoft [L] 
+		RewriteRule ^admuserprofile/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /admin/aym_index.php?option=admuser&url_pag=$1&aym_order=$2&aym_order_type=$3&aym_page_size=$4&aym_page=$5&alr=aymsoft [L] 
+		RewriteRule ^admuserprofile/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /admin/aym_index.php?option=admuser&url_pag=$1&use_id=$2&aym_order=$3&aym_order_type=$4&aym_page_size=$5&aym_page=$6&alr=aymsoft [L]
+        RewriteRule ^admuserprofile/([^/]*)/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /admin/aym_index.php?option=admuser&url_pag=$1&sta_id=$2&use_typ_id=$3&aym_order=$4&aym_order_type=$5&aym_page_size=$6&aym_page=$7&alr=aymsoft [L] 
+		RewriteRule ^admuserprofile/([^/]*)/([0-9]*)/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /admin/aym_index.php?option=admuser&url_pag=$1&use_id=$2&sta_id=$3&use_typ_id=$4&aym_order=$5&aym_order_type=$6&aym_page_size=$7&aym_page=$8&alr=aymsoft [L] 
+
+		RewriteRule ^actionuserprofile$ /admin/aym_component/aym_user/aym_adm_user.php [L]
+	
+		#==================USER DASHBOARD==================
+		RewriteRule ^admuserdashboard/([^/]*)/([0-9]*)$ /admin/aym_index.php?option=admuser&url_pag=$1&use_id=$2&alr=aymsoft [L]
+		RewriteRule ^admuserdashboard/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /admin/aym_index.php?option=admuser&url_pag=$1&use_typ_id=$2&aym_page_size=$3&aym_page=$4&use_id=$5&alr=aymsoft [L]
+		RewriteRule ^actionuserdashboard$ /admin/aym_component/aym_user/aym_adm_user.php [L]
+	
+		#=======================================================================================
+		#==================================== ADMINISTRAR PERFILES =============================
+		#=======================================================================================
+
+		#PROFILE
+		RewriteRule ^admprofile$ /admin/aym_index.php?option=admprofile&alr=aymsoft [L]
+		RewriteRule ^admprofile/([^/]*)$ /admin/aym_index.php?option=admprofile&url_pag=$1&alr=aymsoft [L] 
+		RewriteRule ^admprofile/([^/]*)/([0-9]*)$ /admin/aym_index.php?option=admprofile&url_pag=$1&pro_id=$2&alr=aymsoft [L] 
+		RewriteRule ^admprofile/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /admin/aym_index.php?option=admprofile&url_pag=$1&aym_order=$2&aym_order_type=$3&aym_page_size=$4&aym_page=$5&alr=aymsoft [L] 
+		RewriteRule ^admprofile/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /admin/aym_index.php?option=admprofile&url_pag=$1&pro_id=$2&aym_order=$3&aym_order_type=$4&aym_page_size=$5&aym_page=$6&alr=aymsoft [L] 
+
+		#AGREGAR PERFIL
+		RewriteRule ^actionprofile$ /admin/aym_component/aym_profile/aym_adm_profile.php [L]
+		
+		#ELIMINAR PERFIL
+		RewriteRule ^actionprofile/([0-9]*)$ /admin/aym_component/aym_profile/aym_adm_profile.php?action=D&pro_id=$1 [L]
+	
+		#PROFILE FUNCTION
+		RewriteRule ^admprofilefunction/([^/]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)$ /admin/aym_index.php?option=admprofile&url_pag=$1&pro_id=$2&aym_order=$3&aym_order_type=$4&aym_page_size=$5&aym_page=$6&alr=aymsoft [L]
+		RewriteRule ^actionprofilefunction$ /admin/aym_component/aym_profile/aym_adm_profile.php [L]
+	
+		#IMAGE
+		RewriteRule ^showimage/([0-9]*)/([^/]*)$ /admin/aym_component/aym_common/aym_show_image.php?fil_typ_id=$1&ima_id=$2&alr=aymsoft [L]
+	
+		#ARCHIVOS
+		RewriteRule ^showfile/([0-9]*)/([^/]*)$ /admin/aym_component/aym_common/aym_show_file.php?fil_typ_id=$1&fil_id=$2&alr=aymsoft [L]
+	    RewriteRule ^showfile/([0-9]*)/([^/]*)/([0-9]*)$ /admin/aym_component/aym_common/aym_show_file.php?fil_typ_id=$1&fil_id=$2&fil_dat_id=$3&alr=aymsoft [L]
+
+		#============== SUBIR MULTIPLES ARCHIVOS ==================
+		RewriteRule ^file-upload/([^/]*)$ /admin/aym_component/aym_common/aym_file_upload_dropzone.php?option=file-upload&action=$1&alr=dane [L]
+
+# ================================================================================================ #
+# ========================================= AJAX URL ============================================= #
+# ================================================================================================ #
+
+	RewriteRule ^complement/([^/]*)$ /admin/aym_complement/aym_$1/aym_com_list_$1.php [L] # REGLA PARA CARGAR LOS COMPLEMENTOS DE LAS LISTAS 
+	RewriteRule ^complement/([^/]*)/([^/]*)$ /admin/aym_complement/aym_$1/aym_com_$2.php [L] # REGLA PARA OCULTAR LA URL DE LOS JS
+	RewriteRule ^complement/([^/]*)/list/search$ /admin/aym_complement/aym_$1/aym_com_list_search_$1.php [L] # REGLA PARA CARGAR LAS LISTAS DE BUSQUEDA DENTRO DEL LISTAR
+	
+	
+</IfModule>

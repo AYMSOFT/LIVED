@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+/*
+	CSS Stylesheet jQuery Datepicker 
+	By Adrian Lopez
+	To AyMsoft
+	OCT/10/2022
+*/
+/*MAIN*/
+.hasDatepicker.aym_input_date {background: #fff url('/admin/aym_image/aym_icon/aym_calendar.png') center right .3em no-repeat; background-size: 20px !important;}
+.hasDatepicker.aym_input_date_small {background: #fff url('/admin/aym_image/aym_icon/aym_calendar.png') center right .3em no-repeat; background-size: 20px !important;}
+.hasDatepicker.aym_time {background: #fff url('/admin/aym_image/aym_icon/aym_time_icon.png') center right .3em no-repeat; background-size: 20px !important;}
+.ui-datepicker {padding: 0; width: 20.4em;}
+
+/*HEADER*/
+.ui-widget-header {background: #fff; border: 0;}
+
+/*TITLE*/
+.ui-datepicker-title {display: flex; justify-content: center;}
+.ui-datepicker-title select {background-color: #fff; border: 0 !important; border-radius: 0; margin: 0; padding: 0; width: 100% !important;}
+
+/*TABLE*/
+.ui-datepicker-calendar {border-top: 1px solid #30aedc;}
+.ui-datepicker-calendar tr {background: none !important;}
+.ui-datepicker-calendar tr td a {background: none !important; border: 0 !important; border-radius: 3px; padding: .3em .2em !important; text-align: center !important;}
+.ui-datepicker-calendar tr td a:hover {background: #eee !important;}
+.ui-datepicker-calendar tr td a.ui-state-highlight {background: #fff !important; color: #5cc4ef !important;}
+.ui-datepicker-calendar tr td a.ui-state-highlight:hover {background: #eee !important; color: #222 !important;}
+.ui-datepicker-calendar tr td a.ui-state-active {background: #5cc4ef !important; color: #fff !important;}
+.ui-datepicker-calendar tr td a.ui-state-active:hover {background: #45bced !important; color: #fff !important;}
+
+/*BUTTONS*/
+.ui-datepicker-buttonpane {padding: 0 !important;}
+.ui-datepicker-buttonpane button {background: #fff !important; background-position: center !important; border: 0 !important; border-radius: 2px; box-shadow: unset !important; color: #5cc4ef !important; font-weight: 300 !important; margin: 0 !important; opacity: 1 !important; outline: none; padding: 12px 18px; text-transform: uppercase; transition: background 0.8s;}
+.ui-datepicker-buttonpane button:hover {background: #45bced radial-gradient(circle, transparent 1%, #45bced 1%) center/15000% !important; color: #fff !important;}
+.ui-datepicker-buttonpane button:active {background-color: #6eb9f7 !important; background-size: 100%; transition: background 0s;}
+
+.ui-icon {background-image: url('/admin/aym_image/aym_icon/aym_ui_icons.png') !important;}
+
+.ui-datepicker td span, .ui-datepicker td a {text-align: center;}
+
+/*TIMEPICKER*/
+.ui-timepicker-div {}
+.ui-timepicker-div > dl {padding: 0 15px;}
+.ui-timepicker-div > dl .ui_tpicker_hour_label {padding: 5px 0;}
+.ui-timepicker-div > dl .ui_tpicker_minute_label {padding: 5px 0;}
+.ui-timepicker-div > dl .ui-slider {}
+.ui-timepicker-div > dl .ui-slider > span {background: #45bced !important;}
+.ui-timepicker-div > dl .ui-slider > span.ui-state-hover {background: #5cc4ef !important;}
+.ui-timepicker-div > dl .ui-slider > span.ui-state-active {background: #5cc4ef !important;}
+
+.ui-timepicker-div .ui-datepicker-title{display: none;}

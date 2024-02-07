@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+/* ========== ResetCSS ========== */
+*,html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,tr,select,input{-moz-appearance:inherit; -webkit-appearance:inherit; background:transparent; border:none; border-radius:0; box-sizing: border-box; margin:0; outline:0; padding:0; text-decoration:none;}
+
+/* ========== FUENTE ========== */
+* {font-family: Helvetica;}
+
+/* MAIN */
+body {align-items: center; background: #1C6189 url('/admin/aym_image/aym_back/aym_login_back.jpg') no-repeat center / cover; display: flex; flex-flow: column; height: 100vh !important; justify-content: space-between; opacity: 1; transition: 1s ease;}
+h1,h2,h3,h4,h5,h6{font-weight:800;}
+a,span,p,div,section{font-weight: lighter;}
+main, footer {width: 100%;}
+main {height: 100%;}
+main > section, footer > section {max-width: 1400px; margin: auto; padding: 0 20px;}
+img {display: block; width: 100%;}
+a {color: inherit; display: inline-block; text-decoration: none;}
+
+/*ESTILOS INPUTS*/
+input[type=text],input[type=password],input[type=date],input[type=datetime],input[type=email],input[type=number],input[type=search],input[type=tel],input[type=time],input[type=url],textarea,select{-webkit-appearance: none; -moz-appearance: none; background: #fff; border: 0; box-sizing: border-box; color: rgba(0, 0, 0, 0.7); display: block; filter: unset; font-size: 16px; outline: none; padding: 12px 10px 0; width: 100%; transition: all .3s ease-out;}
+::placeholder {color: rgba(0, 0, 0, 0.7);}
+label {color: rgba(0,0,0,.8); display: inline-block; transition: all .3s ease-out;}
+input:-webkit-autofill, input:-moz-autofill {-webkit-box-shadow: 0 0 0px 1000px #fff inset; filter: unset !important;}
+
+/*ESTILOS BOTONES*/
+button, input[type=submit] {background-color: #30B5E1; background-position: center; border: none; border-radius: 10px; box-shadow: 0 0 4px #999; color: white; font-size: 1em; margin: 0 !important; outline: none; padding: 15px 18px; text-transform: uppercase; transition: background 0.8s; width: 100%;}
+button:hover, input[type=submit]:hover {background: #2873A1 radial-gradient(circle, transparent 1%, #2873A1 1%) center/15000%;}
+button:active, input[type=submit]:active {background-color: #30B5E1; background-size: 100%; transition: background 0s;}
+
+.aym_modal_info {cursor: pointer;}
+
+/*CONTENT*/
+main {align-items: center; display: flex; flex-flow: column; justify-content: center;}
+main > figure {margin-bottom: 10px;}
+main > figure img {max-width: 200px;}
+main > section {background: #fff; margin: 0; max-width: 440px; padding: 40px; width: 100%;} 
+main > section h1 {text-align: center; margin-bottom: 20px;}
+
+/*FORMS*/
+.aym_frm_row {position: relative;}
+.aym_frm_row input {background: white; border: 1px solid #30aedc; border-radius: 10px; font-weight: 200; margin: 10px 0px 20px 0px; padding: 17px 10px 17px 50px; transition: background 0.2s linear, border 0.2s linear; width: 100%;}
+.aym_small_font{font-size: .9em; margin-top: 20px; text-align: right;}
+
+.sho_pwd{background-color: transparent !important; background-image: url(/admin/aym_image/aym_icon/aym_hide_pass.png) !important; background-position: 0px !important; background-size: 100% !important; border: 0px !important; border-radius: 1px !important; cursor: pointer; margin: 0 !important; padding: 0px !important; position: absolute; right: 11px; top: 42px; width: 24px !important; height: 23px !important;}
+.sho_pwd:checked{background-image: url(/admin/aym_image/aym_icon/aym_show_pass.png) !important;}
+
+#aym_use_log:before, #aym_use_pwd:before {background-position: center; background-repeat: no-repeat; background-size: cover; content: ''; height: 20px; left: 16px; position: absolute; top: 44px; width: 20px;}
+#aym_use_log:before {background-image: url('/admin/aym_image/aym_icon/aym_user_icon.png');}
+#aym_use_pwd:before {background-image: url('/admin/aym_image/aym_icon/aym_pass_icon.png');}
+
+/*WRAP EXIT*/
+.aym_wrap_exit {}
+.aym_wrap_exit center {}
+.aym_wrap_exit center strong {font-weight: bold;}
+.aym_wrap_exit a {display: block; padding-top: 20px;}
+
+/*FOOTER*/
+footer {background: #0d3c51; bottom: 0; left: 0; position: absolute; width: 100%; z-index: 2;}
+footer > section {display: flex; flex-flow: wrap; max-width: none;}
+footer > section figure { align-items: center; display: flex; padding: 8px 0; width: 5%;}
+footer > section .aym_copy {color: #fff; text-align: right; font-size: .8em; padding: 8px 0; width: 95%;}
+
+/*FOOTER -- About, Help, Terms & Conditions */
+.aym_window-content {padding: 20px !important;}
+hr {border-top: 1px dashed #aaa;margin: 20px 0;}
+#aym_wrap_menu_footer {color: #333; padding: 0 15px;} 
+#aym_wrap_menu_footer h2 {color: #0A556D; font-size: 1.5em; text-align: left; padding: 0 20px;}
+#aym_wrap_menu_footer h3 {color: #0A556D; margin-bottom: 15px; padding: 0 20px; text-align: left;}
+#aym_wrap_menu_footer figure {display: flex; justify-content: center;}
+#aym_wrap_menu_footer figure img {max-width: 150px;}
+#aym_wrap_menu_footer article {margin-top: 20px;}
+#aym_wrap_menu_footer article div {align-items: center; display: flex; justify-content: space-between; padding-bottom: 10px;}
+#aym_wrap_menu_footer article div span {text-align: left;}
+#aym_wrap_menu_footer article div span:nth-child(1) {font-weight: bold; width: 40%;}
+#aym_wrap_menu_footer article div span:nth-child(2) {width: 60%;}
+#aym_wrap_menu_footer article div.aym_copy span {width: 100%;}
+#aym_wrap_menu_footer article p {font-size: .85em; text-align: justify;}
+
+/* HELP LOGIN */
+.aym_wrap_form ol {text-align: left}
+.aym_wrap_form ol li {transition: all .3s;}
+.aym_wrap_form ol li:hover {color: #30AEDC;}
+.aym_wrap_form ol li a {padding: 10px 0;}
+
+/* BOTONES INICIAR SESION OTRA CUENTA*/
+.aym_login_other_account{margin-top: 20px;}
+.aym_login_other_account center{margin-bottom: 20px;position: relative;width: 100%;}
+.aym_login_other_account center::before{content: '';position: absolute;height: 1px;width: 45%;background-color: #186495;top: 0;bottom: 0;margin: auto;left: 0;}
+.aym_login_other_account center::after{content: '';position: absolute;height: 1px;width: 45%;background-color: #186495;top: 0;bottom: 0;margin: auto;right: 0;}
+.aym_login_other_account a{border: 1px solid #186495;padding: 10px;text-align: center;width: 100%;display: flex;align-items: center;justify-content: center;transition: all .5s linear;}
+.aym_login_other_account a span{width: 20px;height: 20px;margin-right: 10px;background-repeat: no-repeat;background-size: contain;background-position: center;}
+.aym_login_other_account a span.windows{background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='21' height='21'%3E%3Cpath fill='%23f25022' d='M1 1h9v9H1z'/%3E%3Cpath fill='%2300a4ef' d='M1 11h9v9H1z'/%3E%3Cpath fill='%237fba00' d='M11 1h9v9h-9z'/%3E%3Cpath fill='%23ffb900' d='M11 11h9v9h-9z'/%3E%3C/svg%3E");}
+.aym_login_other_account a:hover{background-color: #186495;color: white;}
+
+
+@media screen and (max-width: 450px){
+
+    main {justify-content: flex-start;padding: 20px 0;margin-bottom: 20px;}
+    main > section{width: 90%;padding: 25px;}
+    
+    footer{position: relative;}
+    footer > section{padding: 0 10px;}    
+    footer > section figure {width: 16%;}    
+    footer > section .aym_copy {font-size: .6em;width: 80%;}
+}

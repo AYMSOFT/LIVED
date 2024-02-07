@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+
+input.error, select.error, textarea.error, button.error {background-color: rgb(112,199,230) !important; color: #fff !important;}
+
+input.error::placeholder, textarea.error::placeholder {color: #fff;}
+
+label.error {color:#F00;clear:both;font-size:smaller;}
+label.valid {display: block;height: 16px;width: 16px;}
