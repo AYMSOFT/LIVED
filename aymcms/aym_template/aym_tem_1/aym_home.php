@@ -14,7 +14,7 @@
 				<div class="aym_nav aym_next"><i class="fa-solid fa-chevron-right"></i></div>
 			</div>
 		<?php } ?>
-		<a href="https://wa.me/573042589350" target="_blank"><img class="aym_ico_whatsapp" src="/aym_image/aym_social_media/aym_wa.png" alt="Ícono de WhatsApp"></a>
+		<a href="https://wa.me/573042589350" target="_blank"><img class="aym_ico_whatsapp" src="/aym_image/aym_social_media/aym_whatsapp.png" alt="Ícono de WhatsApp"></a>
 	</section>
 		
 	<section id="aym_about_us_home">
